@@ -18,5 +18,7 @@ jobs:
 
     - name: Build the Docker image of version
       run: docker build -t n8nio/n8n:nightly docker/images/n8n-custom
+      with:
+        context: .
     - name: Push Docker image of version
       run: docker push n8nio/n8n:nightly
