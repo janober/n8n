@@ -8,7 +8,7 @@ on:
       description: 'Name of the GitHub branch to create image off.'
       required: true
       default: 'master'
-    tag:
+    dockertag:
       description: 'Name of the docker tag to create.'
       required: true
       default: 'nightly'
@@ -45,4 +45,4 @@ jobs:
           file: ./docker/images/n8n-custom/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: n8nio/n8n:${{ github.event.inputs.tag }}
+          tags: n8nio/n8n:${{ github.event.inputs.dockertag }}
