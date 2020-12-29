@@ -35,4 +35,4 @@ jobs:
           file: ./docker/images/n8n-custom/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: nightly
+          tags: n8nio/n8n:nightly
