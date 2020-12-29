@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Log in to Docker registry
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build the Docker image of version
+      run: docker build -t n8nio/n8n:nightly docker/images/n8n-custom
+    - name: Push Docker image of version
+      run: docker push n8nio/n8n:nightly
