@@ -4,14 +4,15 @@ on:
   schedule:
     - cron: "0 2 * * *"
   workflow_dispatch:
-    branch:
-      description: 'Name of the GitHub branch to create image off.'
-      required: true
-      default: 'master'
-    dockertag:
-      description: 'Name of the docker tag to create.'
-      required: true
-      default: 'nightly'
+    inputs:
+      branch:
+        description: 'Name of the GitHub branch to create image off.'
+        required: true
+        default: 'master'
+      tag:
+        description: 'Name of the docker tag to create.'
+        required: true
+        default: 'nightly'
 
 jobs:
 
@@ -45,4 +46,4 @@ jobs:
           file: ./docker/images/n8n-custom/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: n8nio/n8n:${{ github.event.inputs.dockertag }}
+          tags: n8nio/n8n:${{ github.event.inputs.tag }}
