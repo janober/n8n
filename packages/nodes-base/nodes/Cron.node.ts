@@ -19,7 +19,7 @@ interface TriggerTime {
 
 export class Cron implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Cron4',
+		displayName: 'Cron5',
 		name: 'cron',
 		icon: 'fa:calendar',
 		group: ['trigger'],
